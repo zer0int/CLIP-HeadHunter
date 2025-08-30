@@ -1,0 +1,7 @@
+colorama
+kornia
+numpy
+Pillow
+safetensors
+# torch # Get your correct version from:                                  https://pytorch.org/get-started/locally/
+# ffmpeg # Available as env variable to call for --save_video; download:  https://www.ffmpeg.org/download.html

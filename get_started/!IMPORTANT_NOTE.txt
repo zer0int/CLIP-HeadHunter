@@ -1,0 +1,22 @@
+1. Load a .json config with: --load_json "path/to/file.json"
+
+This does *NOT* override the following arguments:
+
+--output_folder    # you can leave as-is
+--use_arch         # ViT-L/14 = default
+
+--model_name       # insert your own 
+
+--use_model        # "ViT-L/14" if .json starts with "ViTL14" -> pre-trained OpenAI CLIP
+		   # "path/to/ViT-L-14-KO-LITE-FULL-model-OpenAI-format.safetensors" if .json starts with "KO_LITE_L14"
+
+KO_LITE_L14 is my CLIP: https://huggingface.co/zer0int/CLIP-KO-LITE-TypoAttack-Attn-Dropout-ViT-L-14
+
+Direct download:
+https://huggingface.co/zer0int/CLIP-KO-LITE-TypoAttack-Attn-Dropout-ViT-L-14/resolve/main/ViT-L-14-KO-LITE-FULL-model-OpenAI-format.safetensors?download=true
+
+
+Assuming you downloaded my model and put it into the "models" folder, full command to run:
+
+
+clip_attn_explorer.py --load_json "get_started/multihead_text_image_layer2/KO_LITE_L14_Hmulti_7-11_L2_336.args.json" --model_name "KO_LITE_L14" --use_model "models/ViT-L-14-KO-LITE-FULL-model-OpenAI-format.safetensors"
