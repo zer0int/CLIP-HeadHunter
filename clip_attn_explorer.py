@@ -517,7 +517,7 @@ def _probe_heads_for_prompt(model, premodel, block, layer_idx, tfeat, args_local
         loss += TotalVariation(2, size, 0.0001 * 1.0 * 0.25)
 
         if use_text_emb:
-            from temp_cliptools import PromptAlignmentLoss
+            from cliptools import PromptAlignmentLoss
             loss += PromptAlignmentLoss(
                 clip_model=premodel, image=None,
                 target_text_emb=tfeat,
@@ -1449,7 +1449,7 @@ def generate_visualizations(model, premodel, clipname, layer_range, head_range,
                             tfeat_for_loss = tfeat_tmp / (tfeat_tmp.norm(dim=-1, keepdim=True) + 1e-8)
 
                     if prompt_active and (tfeat_for_loss is not None):
-                        from temp_cliptools import PromptAlignmentLoss
+                        from cliptools import PromptAlignmentLoss
                         loss += PromptAlignmentLoss(
                             clip_model=premodel, image=None,
                             target_text_emb=tfeat_for_loss,
@@ -1887,4 +1887,5 @@ def main():
     print("└──────────────────────────────────────┘\n")
 
 if __name__ == '__main__':
+
     main()
